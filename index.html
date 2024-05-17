@@ -7,15 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Medical Marijuana Patient Limit Calculator</h1>
     <div id="calculator">
-        <label for="currentInventory">Current Inventory (in ounces):</label>
-        <input type="number" id="currentInventory" min="0" value="0">
-        <label for="dailyUsage">Daily Usage (in ounces, optional):</label>
-        <input type="number" id="dailyUsage" min="0" value="0">
+        <h1>Medical Marijuana Patient Limit Calculator</h1>
+        <label for="currentFlower">Current Flower Inventory (in ounces):</label>
+        <input type="number" id="currentFlower" min="0" value="0">
+
+        <label for="currentConcentrates">Current Concentrates Inventory (in grams):</label>
+        <input type="number" id="currentConcentrates" min="0" value="0">
+
+        <label for="currentEdibles">Current Edibles Inventory (in mg of THC):</label>
+        <input type="number" id="currentEdibles" min="0" value="0">
+
+        <label for="dailyFlower">Daily Flower Usage (in ounces, optional):</label>
+        <input type="number" id="dailyFlower" min="0" value="0">
+
+        <label for="dailyConcentrates">Daily Concentrates Usage (in grams, optional):</label>
+        <input type="number" id="dailyConcentrates" min="0" value="0">
+
+        <label for="dailyEdibles">Daily Edibles Usage (in mg of THC, optional):</label>
+        <input type="number" id="dailyEdibles" min="0" value="0">
+
         <button onclick="calculateLimit()">Calculate Allowable Purchase</button>
         <p id="result"></p>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
+
