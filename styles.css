@@ -3,7 +3,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
+    background: url('8sbxf0r2.png') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +19,7 @@ h1 {
 
 /* Calculator Container */
 #calculator {
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
