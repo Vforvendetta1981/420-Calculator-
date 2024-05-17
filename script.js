@@ -7,15 +7,6 @@ function calculateLimit() {
     let currentConcentrates = parseFloat(document.getElementById('currentConcentrates').value);
     let currentEdibles = parseFloat(document.getElementById('currentEdibles').value);
 
-    let dailyFlower = parseFloat(document.getElementById('dailyFlower').value);
-    let dailyConcentrates = parseFloat(document.getElementById('dailyConcentrates').value);
-    let dailyEdibles = parseFloat(document.getElementById('dailyEdibles').value);
-
-    // Default daily usage to 0 if not provided
-    if (isNaN(dailyFlower)) dailyFlower = 0;
-    if (isNaN(dailyConcentrates)) dailyConcentrates = 0;
-    if (isNaN(dailyEdibles)) dailyEdibles = 0;
-
     // Calculate allowable purchases
     let allowableFlower = maxFlower - currentFlower;
     allowableFlower = allowableFlower >= 0 ? allowableFlower : 0;
