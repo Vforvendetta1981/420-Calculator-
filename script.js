@@ -1,35 +1,25 @@
-document.getElementById('calculate').addEventListener('click', () => {
-    let limit = parseFloat(document.getElementById('limit').value);
-    let total = calculateTotal(); // Function to calculate the total
+let flowerLimit = 56;
+let concentratesLimit = 8;
+let ediblesLimit = 20000;
 
-    if (total > limit) {
-        let excess = total - limit;
-        showPopup(`You are over the limit by ${excess}`);
-    }
-});
-
-function showPopup(message) {
-    let popup = document.getElementById('popup');
-    let popupContent = document.getElementById('popup-content');
-    popupContent.textContent = message;
-    popup.style.display = 'block';
-    setTimeout(() => {
-        popup.style.display = 'none';
-    }, 3000);
+function updateLimits() {
+    flowerLimit = parseFloat(document.getElementById('flowerLimit').value) || 56;
+    concentratesLimit = parseFloat(document.getElementById('concentratesLimit').value) || 8;
+    ediblesLimit = parseFloat(document.getElementById('ediblesLimit').value) || 20000;
 }
 
-// Function to calculate the total
-function calculateTotal() {
-    // Your existing logic to calculate the total
-}
+function calculateLimit() {
+    let currentFlower = parseFloat(document.getElementById('currentFlower').value) || 0;
+    let currentConcentrates = parseFloat(document.getElementById('currentConcentrates').value) || 0;
+    let currentEdibles = parseFloat(document.getElementById('currentEdibles').value) || 0;
 
-// Standard calculator logic
-const standardInput = document.getElementById('standard-input');
-const buttons = document.querySelectorAll('.buttons button');
+    let flowerEquivalent = currentFlower;
+    flowerEquivalent += currentConcentrates * 7;
+    flowerEquivalent += (currentEdibles / 10000) * 28;
 
-buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        // Calculator logic
-        standardInput.value += button.textContent;
-    });
-});
+    let remainingFlower = flowerLimit - flowerEquivalent;
+    let remainingConcentrates = concentratesLimit - (flowerEquivalent / 7);
+    let remainingEdibles = ediblesLimit - (flowerEquivalent / 28) * 10000;
+
+    if (remainingFlower < 0 || remainingConcentrates < 0 || remainingEdibles < 0) {
+        let overLimit = Math.min(remainingFlower, remainingConcentrates * 
