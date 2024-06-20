@@ -13,16 +13,23 @@ function calculateLimit() {
     let currentConcentrates = parseFloat(document.getElementById('currentConcentrates').value) || 0;
     let currentEdibles = parseFloat(document.getElementById('currentEdibles').value) || 0;
 
+    // Convert current inventory to flower equivalents
     let flowerEquivalent = currentFlower;
     flowerEquivalent += currentConcentrates * 7;
     flowerEquivalent += (currentEdibles / 10000) * 28;
 
+    // Calculate remaining limits in each category
     let remainingFlower = flowerLimit - flowerEquivalent;
     let remainingConcentrates = concentratesLimit - (flowerEquivalent / 7);
     let remainingEdibles = ediblesLimit - (flowerEquivalent / 28) * 10000;
 
+    // Check if the limits are exceeded
     if (remainingFlower < 0 || remainingConcentrates < 0 || remainingEdibles < 0) {
-        let overLimit = Math.min(remainingFlower, remainingConcentrates * 7, remainingEdibles / 28 * 10000);
+        let overLimit = Math.max(
+            flowerEquivalent - flowerLimit,
+            (flowerEquivalent / 7) - concentratesLimit,
+            (flowerEquivalent / 28) * 10000 - ediblesLimit
+        );
         document.getElementById('popup-text').innerText = `You are over the limit by ${Math.abs(overLimit).toFixed(2)} grams of flower equivalent.`;
         document.getElementById('popup').style.display = 'block';
         setTimeout(() => {
