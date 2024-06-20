@@ -81,3 +81,26 @@ li {
     margin: 5px 0;
     border-radius: 5px;
 }
+
+
+.standard-calculator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 200px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.popuptext {
+    font-size: 16px;
+}
