@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Marijuana Patient Limit Calculator</title>
+    <title>420 Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="calculator">
-        <h1>Medical Marijuana Patient Limit Calculator</h1>
-        <label for="currentFlower">Current Flower Inventory (in grams):</label>
-        <input type="number" id="currentFlower" min="0" value="0">
-
-        <label for="currentConcentrates">Current Concentrates Inventory (in grams):</label>
-        <input type="number" id="currentConcentrates" min="0" value="0">
-
-        <label for="currentEdibles">Current Edibles Inventory (in mg of THC):</label>
-        <input type="number" id="currentEdibles" min="0" value="0">
-
-        <button onclick="calculateLimit()">Calculate Allowable Purchase</button>
-        <p id="result"></p>
+    <div class="calculator-container">
+        <!-- Standard Calculator -->
+        <div class="standard-calculator" id="standard-calculator">
+            <input type="text" id="standard-input" readonly>
+            <div class="buttons">
+                <!-- Calculator buttons -->
+            </div>
+        </div>
+        
+        <!-- Limits Calculator -->
+        <h1>420 Calculator</h1>
+        <div id="calculator">
+            <!-- Existing calculator elements -->
+            <label for="limit">Limit:</label>
+            <input type="number" id="limit" value="100" min="0"> <!-- Default limit value -->
+        </div>
+        
+        <!-- Calculate Button -->
+        <button id="calculate">Calculate</button>
+        
+        <!-- Exceed Limit Popup -->
+        <div id="popup" class="popup">
+            <span class="popuptext" id="popup-content"></span>
+        </div>
     </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
